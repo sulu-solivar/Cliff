@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?
-    authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+    authentications.create(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
   
   def password_required?
