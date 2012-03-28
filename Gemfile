@@ -12,6 +12,7 @@ gem 'nifty-generators'
 gem "bootstrap-sass", ">= 2.0.1"
 gem 'jquery-rails'
 gem "haml", ">= 3.1.4"
+gem "slim-rails"
 
 gem 'sqlite3'
 gem 'pg'
