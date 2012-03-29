@@ -1,6 +1,6 @@
 
 div.span5
-	h3 Test One Result Items
+	h3 Test Two Items
 
 	table.table.table-striped
 		thead
@@ -9,10 +9,10 @@ div.span5
 				th Items
 		tbody
 		- n=1
-		- @result.each do |l|	
+		- @list2.each do |l|	
 			tr
 				td= n
-				td= l.result
+				td= l.item
 				-	n+=1
 
 div.span5
@@ -28,5 +28,5 @@ div.span5
 		- @result.each do |l|	
 			tr
 				td= n
-				td= l.result
+				td= l.item_order
 				-	n+=1

@@ -1,0 +1,20 @@
+<div class="span5">
+		<h3>Test Two Items</h3>
+    <table class="table table-striped ">
+    <thead>
+    <tr>
+    <th>No#</th>
+    <th>Items</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% n=1; @list.each do |l| %>	
+    <tr>
+	    <td><%= n %></td>
+	    <td><%= l.item %></td>
+    </tr>
+    <% n=n+1;end %>
+
+    </tbody>
+    </table>
+ </div>

@@ -4,8 +4,20 @@ class HomeController < ApplicationController
   end
 
   def my_list
-  	@list = List.all
+  	@result = Result.all
   end	
-
-
+	def testone
+  	@list = Testone.all
+  end	
+	def testtwo
+  	@list = Testtwo.all
+  end	
+  def resultone
+    @result = Result.all
+    @list1 = Testone.all
+  end 
+  def resulttwo
+    @result = Result.all
+    @list2 = Testtwo.all
+  end 
 end
