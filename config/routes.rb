@@ -10,6 +10,8 @@ Cliff::Application.routes.draw do
   get "/home/testtwo"
   get "/home/resultone"
   get "/home/resulttwo"
+  get "/home/public_list"
+  post "/home/update_list"
 
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => 'registrations'}

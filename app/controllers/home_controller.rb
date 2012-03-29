@@ -20,4 +20,9 @@ class HomeController < ApplicationController
     @result = Result.all
     @list2 = Testtwo.all
   end 
+  def update_list
+    
+  end
+  def public_list
+  end
 end

@@ -1,23 +1,38 @@
-<div class="span5">
-		<h3>Test One Items</h3>
-    <table class="table table-striped ">
-    <thead>
-    <tr>
-    <th>No#</th>
-    <th>Items</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% n=1; @list.each do |l| %>	
-    <tr>
-	    <td><%= n %></td>
-	    <td><%= l.item %></td>
-    </tr>
-    <% n=n+1;end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+    $("#sortable").sortable();
+  });
+  </script>
+  <style>
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
+    #sortable li span { position: absolute; margin-left: -1.3em; }
+    </style>
+</head>
+<body >
+    <div class="span8">
+        <h3>Test One Items</h3>
+        <%= form_for :items, :url =>{:action =>"update_list"} do |f| %>
+            <ul id="sortable">
+                <% n=1; @list.each do |l| %>    
+                    <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                    <%= l.item %>
+                    </li>
+                <% n=n+1;end %>
+            </ul> 
+            <%= f.submit "Save List"%>
+        <% end %>     
+     </div>
 
-    </tbody>
-    </table>
- </div>
+</body>
+</html>
 
 
 
