@@ -131,7 +131,7 @@ GEM
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
-    omniauth-twitter (0.0.8)
+    omniauth-twitter (0.0.9)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.0.7)
     pg (0.13.2)
