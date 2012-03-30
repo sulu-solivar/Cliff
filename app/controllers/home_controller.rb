@@ -6,8 +6,8 @@ class HomeController < ApplicationController
   end
 
   def my_list
-  	@result1 = Result.find_by_user_id_and_test_num(current_user.id,1)
-    @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
+  	@result1 = Result.find_by_user_id_and_test_num(current_user,1)
+    @result2 = Result.find_by_user_id_and_test_num(current_user,2)
   end	
   
 	def testone
@@ -19,12 +19,12 @@ class HomeController < ApplicationController
   end	
 
   def resultone
-    @result = Result.find_by_user_id_and_test_num(current_user.id,params[:test])
+    @result = Result.find_by_user_id_and_test_num(current_user.id,params[:test].to_i)
     @list1 = Testone.all
   end 
 
   def resulttwo
-    @result = Result.find_by_user_id_and_test_num(current_user.id,params[:test])
+    @result = Result.find_by_user_id_and_test_num(current_user,params[:test])
     @list2 = Testtwo.all
   end 
 
@@ -36,10 +36,10 @@ class HomeController < ApplicationController
       @result = Result.find_by_user_id_and_test_num(current_user.id,test)
       if @result.blank?
         @result = Result.create(:user_id => current_user.id,:item_order => items,:test_num => test )
-        flash[:notice] ="Test One result already saved!"  
+        flash[:notice] ="Test One result saved!"  
         redirect_to :action =>"resultone",:test => test
       else
-        flash[:notice] ="Test One result already saved!"  
+        flash[:error] ="Test One result already saved!"  
         redirect_to :action =>'testone'
       end 
     end
@@ -55,7 +55,7 @@ class HomeController < ApplicationController
         flash[:notice] ="Test two result saved!"  
         redirect_to :action =>"resulttwo",:test => test
       else
-        flash[:notice] ="Test two result already saved!"  
+        flash[:error] ="Test two result already saved!"  
         redirect_to :action =>'testtwo'
       end 
     end

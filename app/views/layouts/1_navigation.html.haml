@@ -2,9 +2,9 @@
 - if user_signed_in?
   %ul.nav
     %li
-      = link_to('TestOne', home_testone_path)    
+      = link_to('TestOne', home_testone_path,:test =>"1")    
     %li
-      = link_to('TestTwo', home_testtwo_path)
+      = link_to('TestTwo', home_testtwo_path,:test =>"2")
     %li.dropdown
       %a href="#" class="dropdown-toggle" data-toggle="dropdown" "Account"
       %b class="caret"

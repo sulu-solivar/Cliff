@@ -2,13 +2,15 @@
 - if user_signed_in?
   ul.nav
     li
+      = link_to('Home', home_my_list_path)
+    li
       = link_to('TestOne', home_testone_path)    
     li
       = link_to('TestTwo', home_testtwo_path)
     li
-      = link_to('Test One Result', home_resultone_path)
+      = link_to('Test One Result', :action =>"resultone",:test =>"1")
     li
-      = link_to('Test Two Result', home_resulttwo_path)
+      = link_to('Test Two Result', :action =>"resulttwo",:test =>"2")
 
 ul.nav.pull-right
   - if user_signed_in?

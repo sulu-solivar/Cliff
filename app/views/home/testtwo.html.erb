@@ -41,6 +41,18 @@
 <body >
     <div class="span8">
         <h3>Test Two Items</h3>
+        <p>
+          Notice that these instructions are slightly different from those of Part 1.
+        </p>
+        <p>
+          Below you will find 18 quotations. Each quotation relates to your own life. Each represents something that different individuals may value differently—depending on their own feelings about how much they agree or disagree with it, as it relates to their own life. 
+        </p>
+        <p>
+          Drag-and-Drop the following quotations so that they are in order from those that have the highest value in your own life to those that have the least value.  The word or phrase that you agree with the most—that is, the one that has the highest value in your own life—should be in the first position. The one that you disagree with the most—that is, which has the least value in your own life—should be in the last position.
+        </p>
+        <p>   
+          It is best to work quickly. You can rearrange these quotations as many times as you want until you are finished. There is no time limit, but most people can complete Part 2 in less than ten minutes. 
+        </p>  
         <%= form_for :items, :url =>{:action =>"update_list2",:test =>"2"} do |f| %>
             <ul id="sortable">
                 <% n=1; @list.each do |l| %>    
