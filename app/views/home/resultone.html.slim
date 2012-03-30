@@ -17,16 +17,18 @@ div.span5
 
 div.span5
 	h3 Test One Result Items
-
-	table.table.table-striped
-		thead
-			tr
-				th No#
-				th Items
-		tbody
-		- n=1
-		- @result.each do |l|	
-			tr
-				td= n
-				td= l.item_order
-				-	n+=1
+	- unless @result.blank?
+		table.table.table-striped
+			thead
+				tr
+					th No#
+					th Items
+			tbody
+			- n=1
+			- @result.item_order.split(",").each do |l|	
+				tr
+					td= n
+					td= Testone.find(l.to_i).item
+					-	n+=1
+	- else			
+			h4.alert Take test for your list.			

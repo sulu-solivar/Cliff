@@ -1,0 +1,31 @@
+div.span5
+	h3 Test One Result Items
+
+	table.table.table-striped
+		thead
+			tr
+				th No#
+				th Items
+		tbody
+		- n=1
+		- @result1.item_order.split(",").each do |l|	
+			tr
+				td= n
+				td= Testone.find(l.to_i).item
+				-	n+=1
+
+div.span5
+	h3 Test Two Result Items
+
+	table.table.table-striped
+		thead
+			tr
+				th No#
+				th Items
+		tbody
+		- n=1
+		- @result1.item_order.split(",").each do |l|	
+			tr
+				td= n
+				td= Testtwo.find(l.to_i).item
+				-	n+=1

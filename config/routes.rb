@@ -11,7 +11,8 @@ Cliff::Application.routes.draw do
   get "/home/resultone"
   get "/home/resulttwo"
   get "/home/public_list"
-  post "/home/update_list"
+  post "/home/update_list1"
+  post "/home/update_list2"
 
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => 'registrations'}
