@@ -13,7 +13,8 @@
     <ul id="sortable">
         <% n=1; @list.each do |l| %>    
             <li id ="<%= l.id %>" class="ui-state-default items">
-              <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+              <!-- <span class="ui-icon ui-icon-arrowthick-2-n-s"></span> -->
+              <b class="number"><%= l.id %></b>
               <%= l.item %>
               <% n = n+1 %>
             </li>
