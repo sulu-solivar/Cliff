@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
-  <script>
-  $(document).ready(function() {
-    
-    change_value();
+<div class="span8">
+  <!-- <h3>Test One Items</h3> -->
+  <p>
+    Below you will find 18 words or phrases. Each of these phrases or words represents something that different individuals may value differently—depending on their own feelings about how good or bad it is. 
+  </p>
+  <p>  
+    Drag-and-Drop the following words or phrases to rearrange them so that they are in order of best-to-worst.  The word or phrase that represents the best (highest) value as far as you are concerned should be in the first position. The one that you feel is the worst should be in the last position. Do not judge the expressions by their importance, but only by the goodness or badness of their content.
+  </p>
+  <p>  
+    It is best to work quickly. You can rearrange these words and phrases as much as you want until you are ready to continue to Part 2. There is no time limit, but most people can complete Part 1 in less than ten minutes.
+  </p>
+  <%= form_for :items, :url =>{:action =>"update_list1",:test =>"1"} do |f| %>
+    <ul id="sortable">
+        <% n=1; @list.each do |l| %>    
+            <li id ="<%= l.id %>" class="ui-state-default items">
+              <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+              <%= l.item %>
+              <% n = n+1 %>
+            </li>
+        <%end %>
+    </ul> 
 
-    $("#sortable").sortable();
-    
-    $('.items').mouseover(function(){  
-      change_value ();
-    });
-  });
-
-  function change_value ()
-  {
-    var items = new Array();
-    var item;
-
-    $('.items').each(function(){
-        item = $(this).attr('id');
-        items.push(item);
-      });
-    $('#order_field').attr('value', items);
-  }
-
-
-  </script>
-  <style>
-    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
-    #sortable li span { position: absolute; margin-left: -1.3em; }
-    </style>
-</head>
-<body >
-    <div class="span8">
-        <h3>Test One Items</h3>
-        <p>
-          Below you will find 18 words or phrases. Each of these phrases or words represents something that different individuals may value differently—depending on their own feelings about how good or bad it is. 
-        </p>
-        <p>  
-          Drag-and-Drop the following words or phrases to rearrange them so that they are in order of best-to-worst.  The word or phrase that represents the best (highest) value as far as you are concerned should be in the first position. The one that you feel is the worst should be in the last position. Do not judge the expressions by their importance, but only by the goodness or badness of their content.
-        </p>
-        <p>  
-          It is best to work quickly. You can rearrange these words and phrases as much as you want until you are ready to continue to Part 2. There is no time limit, but most people can complete Part 1 in less than ten minutes.
-        </p>
-        <%= form_for :items, :url =>{:action =>"update_list1",:test =>"1"} do |f| %>
-            <ul id="sortable">
-                <% n=1; @list.each do |l| %>    
-                    <li id ="<%= l.id %>" class="ui-state-default items">
-                      <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                      <%= l.item %>
-                      <% n = n+1 %>
-                    </li>
-                <%end %>
-            </ul> 
-
-            <%= f.hidden_field "order",:value =>"", :id => 'order_field' %>
-            <%= f.button "Save List",:class =>'btn btn-success', :id => 'save_sorted' %>
-        <% end %>     
-     </div>
-
-</body>
-</html>
-
-
-
+    <%= f.hidden_field "order",:value =>"", :id => 'order_field' %>
+    <%= f.button "Save List",:class =>'btn btn-success', :id => 'save_sorted' %>
+  <% end %>     
+</div>
