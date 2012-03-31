@@ -8,9 +8,9 @@
     li
       = link_to('TestTwo', home_testtwo_path)
     li
-      = link_to('Test One Result', :action =>"resultone",:test =>"1")
+      = link_to('Test One Result', :controller => 'home', :action =>"resultone",:test =>"1")
     li
-      = link_to('Test Two Result', :action =>"resulttwo",:test =>"2")
+      = link_to('Test Two Result', :controller => 'home', :action =>"resulttwo",:test =>"2")
 
 ul.nav.pull-right
   - if user_signed_in?

@@ -1,76 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<div class="span8">
+  <!-- <h3>Test Two Items</h3> -->
+  <p>
+    Notice that these instructions are slightly different from those of Part 1.
+  </p>
+  <p>
+    Below you will find 18 quotations. Each quotation relates to your own life. Each represents something that different individuals may value differently—depending on their own feelings about how much they agree or disagree with it, as it relates to their own life. 
+  </p>
+  <p>
+    Drag-and-Drop the following quotations so that they are in order from those that have the highest value in your own life to those that have the least value.  The word or phrase that you agree with the most—that is, the one that has the highest value in your own life—should be in the first position. The one that you disagree with the most—that is, which has the least value in your own life—should be in the last position.
+  </p>
+  <p>   
+    It is best to work quickly. You can rearrange these quotations as many times as you want until you are finished. There is no time limit, but most people can complete Part 2 in less than ten minutes. 
+  </p>  
+  <%= form_for :items, :url =>{:action =>"update_list2",:test =>"2"} do |f| %>
+    <ul id="sortable">
+        <% n=1; @list.each do |l| %>    
+            <li id ="<%= l.id %>" class="ui-state-default items">
+              <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+              <%= l.item %>
+              <% n = n+1 %>
+            </li>
+        <%end %>
+    </ul> 
 
-  
-  <script>
-  $(document).ready(function() {
-    
-    change_value();
-
-    $("#sortable").sortable();
-    
-    $('.items').mouseover(function(){  
-      change_value ();
-    });
-  });
-
-  function change_value ()
-  {
-    var items = new Array();
-    var item;
-
-    $('.items').each(function(){
-        item = $(this).attr('id');
-        items.push(item);
-      });
-    $('#order_field').attr('value', items);
-  }
-
-
-  </script>
-  <style>
-    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-    #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
-    #sortable li span { position: absolute; margin-left: -1.3em; }
-    </style>
-</head>
-<body >
-    <div class="span8">
-        <h3>Test Two Items</h3>
-        <p>
-          Notice that these instructions are slightly different from those of Part 1.
-        </p>
-        <p>
-          Below you will find 18 quotations. Each quotation relates to your own life. Each represents something that different individuals may value differently—depending on their own feelings about how much they agree or disagree with it, as it relates to their own life. 
-        </p>
-        <p>
-          Drag-and-Drop the following quotations so that they are in order from those that have the highest value in your own life to those that have the least value.  The word or phrase that you agree with the most—that is, the one that has the highest value in your own life—should be in the first position. The one that you disagree with the most—that is, which has the least value in your own life—should be in the last position.
-        </p>
-        <p>   
-          It is best to work quickly. You can rearrange these quotations as many times as you want until you are finished. There is no time limit, but most people can complete Part 2 in less than ten minutes. 
-        </p>  
-        <%= form_for :items, :url =>{:action =>"update_list2",:test =>"2"} do |f| %>
-            <ul id="sortable">
-                <% n=1; @list.each do |l| %>    
-                    <li id ="<%= l.id %>" class="ui-state-default items">
-                      <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-                      <%= l.item %>
-                      <% n = n+1 %>
-                    </li>
-                <%end %>
-            </ul> 
-
-            <%= f.hidden_field "order",:value =>"", :id => 'order_field' %>
-            <%= f.button "Save List",:class =>'btn btn-success', :id => 'save_sorted' %>
-        <% end %>     
-     </div>
-
-</body>
-</html>
-
-
-
+    <%= f.hidden_field "order",:value =>"", :id => 'order_field' %>
+    <%= f.button "Save List",:class =>'btn btn-success', :id => 'save_sorted' %>
+  <% end %>     
+</div>

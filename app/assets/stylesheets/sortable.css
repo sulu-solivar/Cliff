@@ -1,0 +1,6 @@
+.ui-sortable li { cursor: move; }
+#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
+#sortable li span { position: absolute; margin-left: -1.3em; }
+.ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+.numbering { padding:3px;background-color:#0055CC !important;color:#FFF;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px; }
