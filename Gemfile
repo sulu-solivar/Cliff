@@ -15,7 +15,9 @@ gem "haml", ">= 3.1.4"
 gem "slim-rails"
 
 gem 'sqlite3'
-gem 'pg'
+group :production do
+  gem 'pg'
+end  
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
