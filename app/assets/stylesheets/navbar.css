@@ -1,0 +1,19 @@
+.navbar-inner {
+	background-color: #CCC !important;
+	/*background-image: url('../assets/header_bg.png') !important;*/
+	color:#333 !important;
+	background-image:-moz-linear-gradient(top, #F6F6F6, #d3d5d7) !important;
+	background-image:-ms-linear-gradient(top, #F6F6F6, #d3d5d7) !important;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#F6F6F6), to(#d3d5d7)) !important;
+	background-image:-webkit-linear-gradient(top, #F6F6F6, #d3d5d7) !important;
+	background-image:-o-linear-gradient(top, #F6F6F6, #d3d5d7) !important;
+	background-image:linear-gradient(top, #F6F6F6, #d3d5d7) !important;
+	background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F6F6F6', endColorstr='#d3d5d7', GradientType=0) !important;
+	border-bottom: 1px solid #e4e5e6 !important;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar-inner .container a, .navbar-inner .container ul li a { color: #222; text-shadow: 1px 1px 0px #FFF; }
+.navbar-inner .container a:hover { color: #000; }
+.navbar-inner .container a span, .navbar-inner .container ul li a span { padding:5px 10px; -moz-border-radius:20px; -webkit-border-radius:20px; border-radius:20px; }
+.navbar-inner .container ul li a:hover span, .navbar-inner .container ul li a span.active { background: #AAA; color: #FFF; text-shadow: 1px 1px 0px #777; -moz-box-shadow: 0px 0px 5px #777 inset; -webkit-box-shadow: 0px 0px 5px #777 inset; box-shadow: 0px 0px 5px #777 inset; }

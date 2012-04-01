@@ -687,14 +687,20 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 /* line 29, ../../app/assets/stylesheets/application.css.scss */
 .content_header {
-  background: #EEE;
+  background:#dee1e2;
+  background-image:-moz-linear-gradient(top, #EEEEEE, #dee1e2);
+  background-image:-ms-linear-gradient(top, #EEEEEE, #dee1e2);
+  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#EEEEEE), to(#dee1e2));
+  background-image:-webkit-linear-gradient(top, #EEEEEE, #dee1e2);
+  background-image:-o-linear-gradient(top, #EEEEEE, #dee1e2);
+  background-image:linear-gradient(top, #EEEEEE, #dee1e2);
+  background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#dee1e2', GradientType=0);
   -moz-border-radius: 10px 10px 0px 0px;
   -webkit-border-radius: 10px 10px 0px 0px;
   border-radius: 10px 10px 0px 0px;
   padding: 20px;
-  border-bottom: 1px solid #E0E0E0;
+  /*border-bottom: 1px solid #E0E0E0;*/
 }
-
 /* line 38, ../../app/assets/stylesheets/application.css.scss */
 .content {
   padding: 20px;

@@ -7,28 +7,33 @@ class HomeController < ApplicationController
   end
 
   def my_list
+    @home_tab = 'active'
     @page_header = "Home - Cliff's Hartman Model"
   	@result1 = Result.find_by_user_id_and_test_num(current_user,1)
     @result2 = Result.find_by_user_id_and_test_num(current_user,2)
   end	
   
 	def testone
+    @test_one_tab = 'active'
     @page_header = "Test One Items - Cliff's Hartman Model"
   	@list = Testone.all
   end	
 
 	def testtwo
+    @test_two_tab = 'active'
     @page_header = "Test Two Items - Cliff's Hartman Model"
   	@list = Testtwo.all
   end	
 
   def resultone
+    @result_one_tab = 'active'
     @page_header = "Test One Results - Cliff's Hartman Model"
     @result = Result.find_by_user_id_and_test_num(current_user.id,params[:test].to_i)
     @list1 = Testone.all
   end 
 
   def resulttwo
+    @result_two_tab = 'active'
     @page_header = "Test Two Results - Cliff's Hartman Model"
     @result = Result.find_by_user_id_and_test_num(current_user,params[:test])
     @list2 = Testtwo.all
