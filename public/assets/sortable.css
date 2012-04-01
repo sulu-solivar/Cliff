@@ -1,6 +1,7 @@
-.ui-sortable li { cursor: move; }
+.ui-sortable li { cursor: move; line-height: 13px !important; }
+.ui-icon { height:13px !important; margin-top:-2px; line-height:13px !important; }
 #sortable { list-style-type: none; margin: 0; padding: 0; width: 80%; }
-#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
+#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 13px; }
 #sortable li span { position: absolute; margin-left: -16px; }
 .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
 .numbering { padding:2px;background-color:#76AFFF !important;color:#FFF;border-radius:20px;-moz-border-radius:20px;-webkit-border-radius:20px;font-weight:normal;font-size:9px;width:17px;text-align:center;margin-top:-2px; }
