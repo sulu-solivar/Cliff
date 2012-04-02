@@ -2,26 +2,26 @@
 - if user_signed_in?
   ul.nav
     li
-      = link_to('Profile', home_my_list_path)
+      = link_to raw("<span class='#{ @home_tab }'>Profile</span>"), home_my_list_path
     li
-      = link_to('TestOne', home_testone_path)    
+      = link_to raw("<span class='#{ @test_one_tab }'>TestOne</span>"), home_testone_path
     li
-      = link_to('TestTwo', home_testtwo_path)
+      = link_to raw("<span class='#{ @test_two_tab }'>TestTwo</span>"), home_testtwo_path
     li
-      = link_to('Test One Result', :controller => 'home', :action =>"resultone",:test =>"1")
+      = link_to raw("<span class='#{ @result_one_tab }'>Test One Result</span>"), :controller => 'home', :action => "resultone", :test => "1"
     li
-      = link_to('Test Two Result', :controller => 'home', :action =>"resulttwo",:test =>"2")
+      = link_to raw("<span class='#{ @result_two_tab }'>Test Two Result</span>"), :controller => 'home', :action => "resulttwo", :test => "2"
 
 ul.nav.pull-right
   - if user_signed_in?
     li
-      = link_to('Edit account', edit_user_registration_path)
+      = link_to(raw("<span class='#{ @edit_account_tab }'>Edit account</span>"), edit_user_registration_path)
   - else
     li
-      = link_to('Sign up', new_user_registration_path)
+      = link_to(raw("<span class='#{ @sign_up_tab }'>Sign up</span>"), new_user_registration_path)
   - if user_signed_in?
     li
-      = link_to('Logout', destroy_user_session_path, :method=>'delete')
+      = link_to(raw("<span>Logout</span>"), destroy_user_session_path, :method=>'delete')
   - else
     li
-      = link_to('Login', new_user_session_path)
+      = link_to(raw("<span class='#{ @login_tab }'>Login</span>"), new_user_session_path)

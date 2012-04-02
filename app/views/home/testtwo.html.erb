@@ -1,4 +1,4 @@
-<div class="span8">
+<div class="">
   <!-- <h3>Test Two Items</h3> -->
   <p>
     Notice that these instructions are slightly different from those of Part 1.
@@ -12,18 +12,21 @@
   <p>   
     It is best to work quickly. You can rearrange these quotations as many times as you want until you are finished. There is no time limit, but most people can complete Part 2 in less than ten minutes. 
   </p>  
-  <%= form_for :items, :url =>{:action =>"update_list2",:test =>"2"} do |f| %>
-    <ul id="sortable">
-        <% n=1; @list.each do |l| %>    
-            <li id ="<%= l.id %>" class="ui-state-default items">
-              <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
-              <%= l.item %>
-              <% n = n+1 %>
-            </li>
-        <%end %>
-    </ul> 
+  <div class="span8">
+    <%= form_for :items, :url =>{:action =>"update_list2",:test =>"2"} do |f| %>
+      <ul id="sortable">
+          <% n=1; @list.each do |l| %>    
+              <li id ="<%= l.id %>" class="ui-state-default items">
+                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                <!-- <span class="numbering"><%= l.id %></span> -->
+                <span class="li_content"><%= l.item %></span>
+                <% n = n+1 %>
+              </li>
+          <%end %>
+      </ul> 
 
-    <%= f.hidden_field "order",:value =>"", :id => 'order_field' %>
-    <%= f.button "Save List",:class =>'btn btn-success', :id => 'save_sorted' %>
-  <% end %>     
+      <%= f.hidden_field "order",:value =>"", :id => 'order_field' %>
+      <%= f.button "Save List",:class =>'btn btn-success btn-large', :id => 'save_sorted' %>
+    <% end %>     
+  </div>
 </div>
