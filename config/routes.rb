@@ -10,7 +10,8 @@ Cliff::Application.routes.draw do
   get "/home/testtwo"
   get "/home/resultone"
   get "/home/resulttwo"
-  get "/home/public_list"
+  get "/home/result"
+  get "/home/report"
   post "/home/update_list1"
   post "/home/update_list2"
 

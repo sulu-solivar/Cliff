@@ -8,8 +8,13 @@
     li
       = link_to raw("<span class='#{ @test_two_tab }'>TestTwo</span>"), home_testtwo_path
     li
-      = link_to raw("<span class='#{ @result_one_tab }'>Test One Result</span>"), :controller => 'home', :action => "resultone", :test => "1"
+      = link_to raw("<span class='#{ @result_tab }'>Results</span>"), :controller => 'home', :action => "result"
     li
+      = link_to raw("<span class='#{ @report_tab }'>Report</span>"), :controller => 'home', :action => "report"
+       
+  /!  li
+      = link_to raw("<span class='#{ @result_one_tab }'>Test One Result</span>"), :controller => 'home', :action => "resultone", :test => "1"
+  /!  li
       = link_to raw("<span class='#{ @result_two_tab }'>Test Two Result</span>"), :controller => 'home', :action => "resulttwo", :test => "2"
 
 ul.nav.pull-right

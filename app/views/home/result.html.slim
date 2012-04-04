@@ -1,0 +1,46 @@
+div.span5
+	h3.alert.alert-info Test One Result Items
+	- if @result1
+		table.table.table-striped
+			thead
+				tr
+					th Index Number
+					th Group Code
+					th Old Row Number
+					th New Row Number
+			tbody
+	  	
+			- n=1;@result1.item_order.split(",").each do |l|	
+				-	item = Testone.find(l.to_i)	
+				tr
+					td= item.index_code
+					td= item.group_code
+					td= n
+					td= l
+					-	n=n+1					
+	- else			
+			h4.alert.alert-error Take test one for your list.	
+			
+
+div.span5
+	h3.alert.alert-info Test Two Result Items
+	- unless @result2.blank?
+		table.table.table-striped
+			thead
+				tr
+					th Index Number
+					th Group Code
+					th Old Row Number
+					th New Row Number
+			tbody
+	  	
+			- n=1;@result2.item_order.split(",").each do |l|	
+				-	item = Testtwo.find(l.to_i)	
+				tr
+					td= item.index_code
+					td= item.group_code
+					td= n
+					td= l
+					-	n=n+1					
+	- else			
+		h4.alert.alert-error Take test two for your list.			

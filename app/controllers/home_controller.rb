@@ -39,6 +39,14 @@ class HomeController < ApplicationController
     @list2 = Testtwo.all
   end 
 
+  def result
+    @result_tab = 'active'
+    @page_header = "Test Results - Cliff's Hartman Model"
+    @result1 = Result.find_by_user_id_and_test_num(current_user.id,1)
+    @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
+
+  end
+
   def update_list1
     #render :text => params[:test].inspect;return;
     if request.post?
@@ -48,7 +56,7 @@ class HomeController < ApplicationController
       if @result.blank?
         @result = Result.create(:user_id => current_user.id,:item_order => items,:test_num => test )
         flash[:notice] ="Test One result saved!"  
-        redirect_to :action =>"resultone",:test => test
+        redirect_to :action =>"result"
       else
         flash[:error] ="Test One result already saved!"  
         redirect_to :action =>'testone'
@@ -64,7 +72,7 @@ class HomeController < ApplicationController
     if @result.blank?
         @result = Result.create(:user_id => current_user.id,:item_order => items,:test_num => test )
         flash[:notice] ="Test two result saved!"  
-        redirect_to :action =>"resulttwo",:test => test
+        redirect_to :action =>"result"
       else
         flash[:error] ="Test two result already saved!"  
         redirect_to :action =>'testtwo'
@@ -72,6 +80,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def public_list
+  def report
+    @report_tab = 'active'
   end
 end
