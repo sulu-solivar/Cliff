@@ -18,7 +18,7 @@
     <%= form_for :items, :url =>{:action =>"update_list1",:test =>"1"} do |f| %>
       <ul id="sortable">
           <% n=1; @list.each do |l| %>    
-              <li id ="<%= l.id %>" class="ui-state-default items">
+              <li id ="<%= l.row_number %>" class="ui-state-default items">
                 <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
                 <!-- <span class="numbering"><%= l.id %></span> -->
                 <span class="li_content"><%= l.item %></span>
