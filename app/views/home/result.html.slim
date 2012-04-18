@@ -11,11 +11,11 @@ div.span5
 			tbody
 	  	
 			- n=1;@result1.item_order.split(",").each do |l|	
-				-	item = Testone.find_by_row_number(l.to_i)	
+				-	item = Testone.find(n)	
 				tr
 					td= item.index_code
 					td= item.group_code
-					td= n
+					td= item.row_number
 					td= l
 					-	n=n+1					
 	- else			
