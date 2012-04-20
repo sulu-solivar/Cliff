@@ -1,4 +1,4 @@
-div.span5
+div
 	h3.alert.alert-info Test One Result Items
 	- if @result1
 		table.table.table-striped
@@ -8,21 +8,28 @@ div.span5
 					th Group Code
 					th Old Row Number
 					th New Row Number
+					th DIM I1
+					th DIM E1
+					th DIM S1
 			tbody
 	  	
 			- n=1;@result1.item_order.split(",").each do |l|	
-				-	item = Testone.find_by_row_number(l.to_i)	
+				-	item = Testone.find_by_row_number(l.to_i)
+				- dim1 = (item.row_number-l.to_i).abs
 				tr
 					td= item.index_code
 					td= item.group_code
-					td= n
+					td= item.row_number
 					td= l
+					td= item.group_code == 'I' ? dim1 : '-'
+					td= item.group_code == 'E' ? dim1 : '-'
+					td= item.group_code == 'S' ? dim1 : '-'
 					-	n=n+1					
 	- else			
 			h4.alert.alert-error Take test one for your list.	
 			
 
-div.span5
+div
 	h3.alert.alert-info Test Two Result Items
 	- unless @result2.blank?
 		table.table.table-striped
