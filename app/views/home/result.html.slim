@@ -14,7 +14,7 @@ div
 			tbody
 	  	
 			- n=1;@result1.item_order.split(",").each do |l|	
-				-	item = Testone.find_by_row_number(l.to_i)
+				-	item = Testone.find_by_row_number(n)
 				- dim1 = (item.row_number-l.to_i).abs
 				tr
 					td= item.index_code
