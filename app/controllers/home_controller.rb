@@ -53,6 +53,12 @@ class HomeController < ApplicationController
     @total_int_e1 = total_int_e1 @result1.item_order
     @total_int_s1 = total_int_s1 @result1.item_order
 
+    @dif1 = dif1 @result1.item_order
+    @int1 = int1 @result1.item_order
+    @dim1 = dim1 @result1.item_order
+    @di1 = di1 @result1.item_order
+
+
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
 
   end
@@ -160,4 +166,19 @@ class HomeController < ApplicationController
     return total
   end
 
+  def dif1 new_order
+    return total_dim_i1(new_order) + total_dim_s1(new_order) + total_dim_e1(new_order)
+  end
+
+  def int1 new_order
+    return total_int_i1(new_order) + total_int_s1(new_order) + total_int_e1(new_order)
+  end
+
+  def dim1 new_order
+    return 3*([total_dim_i1(new_order), total_dim_s1(new_order), total_dim_e1(new_order)].max) - dif1(new_order)
+  end
+
+  def di1 new_order
+    return 3*([total_int_i1(new_order), total_int_s1(new_order), total_int_e1(new_order)].max) - int1(new_order)
+  end
 end
