@@ -11,20 +11,46 @@ div
 					th DIM I1
 					th DIM E1
 					th DIM S1
+					th INT I1
+					th INT E1
+					th INT S1
+					th INT1
+					th DIF1
+					th DIM1
+					th DI1
 			tbody
-	  	
-			- n=1;@result1.item_order.split(",").each do |l|	
-				-	item = Testone.find_by_row_number(n)
-				- dim1 = (item.row_number-l.to_i).abs
+			- n = 1
+			- new_order = @result1.item_order
+			- new_order.split(",").each do |l|
+				-	item = Testone.find(n)
 				tr
 					td= item.index_code
 					td= item.group_code
 					td= item.row_number
 					td= l
-					td= item.group_code == 'I' ? dim1 : '-'
-					td= item.group_code == 'E' ? dim1 : '-'
-					td= item.group_code == 'S' ? dim1 : '-'
-					-	n=n+1					
+					td= item.dim_i1 l
+					td= item.dim_e1 l
+					td= item.dim_s1 l
+					td= item.int_i1 l
+					td= item.int_e1 l
+					td= item.int_s1 l
+					-	n += 1
+			tr
+				td
+				td
+				td
+				td
+				td= @total_dim_i1
+				td= @total_dim_e1
+				td= @total_dim_s1
+				td= @total_int_i1
+				td= @total_int_e1
+				td= @total_int_s1
+				td= @int1
+				td= @dif1
+				td= @dim1
+				td= @di1
+
 	- else			
 			h4.alert.alert-error Take test one for your list.	
 			
