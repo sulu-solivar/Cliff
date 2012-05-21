@@ -10,8 +10,12 @@
  *
  *= require jquery.ui.all
  *= require_self
+ *= require bootstrap_and_overrides
+ *= require home
  *= require navbar
- *= require_tree .
+ *= require sortable
+ *= require users
+ 
 */
 
 .content_panel {

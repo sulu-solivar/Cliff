@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
       root_path
     end
     def after_sign_in_path_for(resource_or_scope)
-    	home_my_list_path
+    	if current_user
+    	 	home_my_list_path 
+    	else
+    		root_path
+    	end
     end
 
 end

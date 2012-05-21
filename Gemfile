@@ -14,7 +14,11 @@ gem 'jquery-rails'
 gem "haml", ">= 3.1.4"
 gem "slim-rails"
 
-gem 'sqlite3'
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+
+
+
 group :production do
   gem 'pg'
 end  
@@ -27,6 +31,7 @@ group :assets do
 end
 
 group :development do
+  gem 'sqlite3'
   gem "guard-bundler", ">= 0.1.3"  
   gem "guard-rails", ">= 0.0.3"    
   gem "guard-rspec", ">= 0.4.3"    
@@ -47,6 +52,7 @@ group :test do
   gem "capybara", ">= 1.1.2"
   gem "database_cleaner", ">= 0.7.1"
   gem "launchy", ">= 2.0.5"
+  gem "mocha"
 
 end
 
@@ -63,6 +69,3 @@ case HOST_OS
     gem 'win32console', :group => :development
     gem 'rb-notifu', :group => :development
 end
-
-
-gem "mocha", :group => :test
