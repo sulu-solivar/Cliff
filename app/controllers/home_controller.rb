@@ -45,18 +45,20 @@ class HomeController < ApplicationController
     
     @result1 = Result.find_by_user_id_and_test_num(current_user.id,1)
 
-    @total_dim_i1 = total_dim_i1 @result1.item_order
-    @total_dim_e1 = total_dim_e1 @result1.item_order
-    @total_dim_s1 = total_dim_s1 @result1.item_order
-    
-    @total_int_i1 = total_int_i1 @result1.item_order
-    @total_int_e1 = total_int_e1 @result1.item_order
-    @total_int_s1 = total_int_s1 @result1.item_order
+    if defined? @result1.item_order
+      @total_dim_i1 = total_dim_i1 @result1.item_order 
+      @total_dim_e1 = total_dim_e1 @result1.item_order
+      @total_dim_s1 = total_dim_s1 @result1.item_order
+      
+      @total_int_i1 = total_int_i1 @result1.item_order
+      @total_int_e1 = total_int_e1 @result1.item_order
+      @total_int_s1 = total_int_s1 @result1.item_order
 
-    @dif1 = dif1 @result1.item_order
-    @int1 = int1 @result1.item_order
-    @dim1 = dim1 @result1.item_order
-    @di1 = di1 @result1.item_order
+      @dif1 = dif1 @result1.item_order
+      @int1 = int1 @result1.item_order
+      @dim1 = dim1 @result1.item_order
+      @di1 = di1 @result1.item_order
+    end
 
 
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
@@ -98,6 +100,7 @@ class HomeController < ApplicationController
 
   def report
     @report_tab = 'active'
+    @user = current_user
   end
 
 

@@ -1,1 +1,16 @@
-h4.alert.alert-error render PDF layout here, as per given on basecamp.
+/ h4.alert.alert-error render PDF layout here, as per given on basecamp.
+
+h2= @user.full_name
+
+h3= Time.now
+
+= image_tag 'traffic.png', :class => 'fl'
+div.mbm.mtl
+	span.fb Red
+	|&nbsp;means this area needs significant attention from you.
+div.mbm
+	span.fb Yellow
+	|&nbsp;means that this area can use some attention.
+div.mbm
+	span.fb Green
+	|&nbsp;means this is a particular strength of yours.
