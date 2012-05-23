@@ -46,6 +46,8 @@ class HomeController < ApplicationController
     @result1 = Result.find_by_user_id_and_test_num(current_user.id,1)
 
     if defined? @result1.item_order
+      @avg_row_number = Testone.avg_row_number
+      @avg_new_order = Testone.avg_new_order @result1.item_order
       @total_dim_i1 = total_dim_i1 @result1.item_order 
       @total_dim_e1 = total_dim_e1 @result1.item_order
       @total_dim_s1 = total_dim_s1 @result1.item_order
@@ -53,11 +55,25 @@ class HomeController < ApplicationController
       @total_int_i1 = total_int_i1 @result1.item_order
       @total_int_e1 = total_int_e1 @result1.item_order
       @total_int_s1 = total_int_s1 @result1.item_order
+      @total_dis1 = total_dis1 @result1.item_order
+      @total_bali1 = total_bali1 @result1.item_order
+      @total_bale1 = total_bale1 @result1.item_order
+      @total_bals1 = total_bals1 @result1.item_order
+      @total_rho1 = total_rho1 @result1.item_order
+      @total_rho2 = total_rho2 @result1.item_order
+      @total_rho3 = total_rho3 @result1.item_order
 
       @dif1 = dif1 @result1.item_order
       @int1 = int1 @result1.item_order
       @dim1 = dim1 @result1.item_order
       @di1 = di1 @result1.item_order
+
+      @alper1 = (alper1 @result1.item_order).to_s + ' %'
+
+      @vq1 = @int1 + @dif1 + @dim1 + @total_dis1
+      @vq2 = @int1 + @dim1 + @total_dis1
+      @dimper1 = (@dim1 * 100) / @dif1
+      @intper1 = (@int1 * 100) / @dif1
     end
 
 
@@ -184,4 +200,91 @@ class HomeController < ApplicationController
   def di1 new_order
     return 3*([total_int_i1(new_order), total_int_s1(new_order), total_int_e1(new_order)].max) - int1(new_order)
   end
+
+  def total_dis1 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).dis1(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_bali1 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).bali1(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_bale1 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).bale1(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_bals1 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).bals1(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_rho1 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).rho1(row, new_order)
+      n += 1
+    end
+    return total
+  end
+
+  def total_rho2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).rho2(row, new_order)
+      n += 1
+    end
+    return total
+  end
+
+  def total_rho3 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testone.find(n).rho3(row, new_order)
+      n += 1
+    end
+    return total
+  end
+
+  def alper1 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      bali1 = Testone.find(n).bali1(row)
+      bale1 = Testone.find(n).bale1(row)
+      bals1 = Testone.find(n).bals1(row)
+      total += ( bali1 < 0 ) ? bali1 : 0
+      total += ( bale1 < 0 ) ? bale1 : 0
+      total += ( bals1 < 0 ) ? bals1 : 0
+      n += 1
+    end
+    final = ((-total) * 100) / dif1(new_order)
+    return final
+  end
+
 end

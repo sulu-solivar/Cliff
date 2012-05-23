@@ -4,10 +4,10 @@ div
 		table.table.table-striped
 			thead
 				tr
-					th Index Number
-					th Group Code
-					th Old Row Number
-					th New Row Number
+					th title="Index Number" I N
+					th title="Group Code" G C
+					th title="Old Row Number" O R N
+					th title="New Row Number" N R N
 					th DIM I1
 					th DIM E1
 					th DIM S1
@@ -18,6 +18,18 @@ div
 					th DIF1
 					th DIM1
 					th DI1
+					th DIS1
+					th Alper1
+					th VQ1
+					th VQ2
+					th DIMper1
+					th INTper1
+					th BALI1
+					th BALE1
+					th BALS1
+					th Rho1
+					th Rho2
+					th Rho3
 			tbody
 			- n = 1
 			- new_order = @result1.item_order
@@ -34,12 +46,28 @@ div
 					td= item.int_i1 l
 					td= item.int_e1 l
 					td= item.int_s1 l
+					td
+					td
+					td
+					td
+					td= item.dis1 l
+					td
+					td
+					td
+					td
+					td
+					td= item.bali1 l
+					td= item.bale1 l
+					td= item.bals1 l
+					td= item.rho1 l, new_order
+					td= item.rho2 l, new_order
+					td= item.rho3 l, new_order
 					-	n += 1
 			tr
 				td
 				td
-				td
-				td
+				td= @avg_row_number
+				td= @avg_new_order
 				td= @total_dim_i1
 				td= @total_dim_e1
 				td= @total_dim_s1
@@ -50,6 +78,18 @@ div
 				td= @dif1
 				td= @dim1
 				td= @di1
+				td= @total_dis1
+				td= @alper1
+				td= @vq1
+				td= @vq2
+				td= @dimper1
+				td= @intper1
+				td= @total_bali1
+				td= @total_bale1
+				td= @total_bals1
+				td= @total_rho1
+				td= @total_rho2
+				td= @total_rho3
 
 	- else			
 			h4.alert.alert-error Take test one for your list.	
