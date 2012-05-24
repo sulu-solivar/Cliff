@@ -75,7 +75,38 @@ class HomeController < ApplicationController
       @dimper1 = (@dim1 * 100) / @dif1
       @intper1 = (@int1 * 100) / @dif1
     end
+
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
+    if defined? @result2.item_order
+      @avg_row_number2 = Testtwo.avg_row_number
+      @avg_new_order2 = Testtwo.avg_new_order @result2.item_order
+      @total_dim_i2 = total_dim_i2 @result2.item_order 
+      @total_dim_e2 = total_dim_e2 @result2.item_order
+      @total_dim_s2 = total_dim_s2 @result2.item_order
+      
+      @total_int_i2 = total_int_i2 @result2.item_order
+      @total_int_e2 = total_int_e2 @result2.item_order
+      @total_int_s2 = total_int_s2 @result2.item_order
+      @total_dis2 = total_dis2 @result2.item_order
+      @total_bali2 = total_bali2 @result2.item_order
+      @total_bale2 = total_bale2 @result2.item_order
+      @total_bals2 = total_bals2 @result2.item_order
+      @total_rho4 = total_rho4 @result2.item_order
+      @total_rho5 = total_rho5 @result2.item_order
+      @total_rho6 = total_rho6 @result2.item_order
+
+      @dif2 = dif2 @result2.item_order
+      @int2 = int2 @result2.item_order
+      @dim2 = dim2 @result2.item_order
+      @di2 = di2 @result2.item_order
+
+      @alper2 = (alper2 @result2.item_order).to_s + ' %'
+
+      @vq3 = @int2 + @dif2 + @dim2 + @total_dis2
+      @vq4 = @int2 + @dim2 + @total_dis2
+      @dimper2 = (@dim2 * 100) / @dif2
+      @intper2 = (@int2 * 100) / @dif2
+    end
   end
 
   def final_result
@@ -114,7 +145,38 @@ class HomeController < ApplicationController
       @dimper1 = (@dim1 * 100) / @dif1
       @intper1 = (@int1 * 100) / @dif1
     end
+    
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
+    if defined? @result2.item_order
+      @avg_row_number2 = Testtwo.avg_row_number
+      @avg_new_order2 = Testtwo.avg_new_order @result2.item_order
+      @total_dim_i2 = total_dim_i2 @result2.item_order 
+      @total_dim_e2 = total_dim_e2 @result2.item_order
+      @total_dim_s2 = total_dim_s2 @result2.item_order
+      
+      @total_int_i2 = total_int_i2 @result2.item_order
+      @total_int_e2 = total_int_e2 @result2.item_order
+      @total_int_s2 = total_int_s2 @result2.item_order
+      @total_dis2 = total_dis2 @result2.item_order
+      @total_bali2 = total_bali2 @result2.item_order
+      @total_bale2 = total_bale2 @result2.item_order
+      @total_bals2 = total_bals2 @result2.item_order
+      @total_rho4 = total_rho4 @result2.item_order
+      @total_rho5 = total_rho5 @result2.item_order
+      @total_rho6 = total_rho6 @result2.item_order
+
+      @dif2 = dif2 @result2.item_order
+      @int2 = int2 @result2.item_order
+      @dim2 = dim2 @result2.item_order
+      @di2 = di2 @result2.item_order
+
+      @alper2 = (alper2 @result2.item_order).to_s + ' %'
+
+      @vq3 = @int2 + @dif2 + @dim2 + @total_dis2
+      @vq4 = @int2 + @dim2 + @total_dis2
+      @dimper2 = (@dim2 * 100) / @dif2
+      @intper2 = (@int2 * 100) / @dif2
+    end
   end
 
   def update_list1
@@ -320,6 +382,174 @@ class HomeController < ApplicationController
       n += 1
     end
     final = ((-total) * 100) / dif1(new_order)
+    return final
+  end
+
+  
+  # calculating totals for the result2 ################################################
+
+  def total_dim_i2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      dim2 = (Testtwo.find(n).dim_i2(row) == '-') ? 0 : Testtwo.find(n).dim_i2(row)
+      total += dim2
+      n += 1
+    end
+    return total
+  end
+
+  def total_dim_e2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      dim2 = (Testtwo.find(n).dim_e2(row) == '-') ? 0 : Testtwo.find(n).dim_e2(row)
+      total += dim2
+      n += 1
+    end
+    return total
+  end
+
+  def total_dim_s2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      dim2 = (Testtwo.find(n).dim_s2(row) == '-')? 0 : Testtwo.find(n).dim_s2(row)
+      total += dim2
+      n += 1
+    end
+    return total
+  end
+
+  def total_int_i2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).int_i2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_int_s2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).int_s2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_int_e2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).int_e2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def dif2 new_order
+    return total_dim_i2(new_order) + total_dim_s2(new_order) + total_dim_e2(new_order)
+  end
+
+  def int2 new_order
+    return total_int_i2(new_order) + total_int_s2(new_order) + total_int_e2(new_order)
+  end
+
+  def dim2 new_order
+    return 3*([total_dim_i2(new_order), total_dim_s2(new_order), total_dim_e2(new_order)].max) - dif2(new_order)
+  end
+
+  def di2 new_order
+    return 3*([total_int_i2(new_order), total_int_s2(new_order), total_int_e2(new_order)].max) - int2(new_order)
+  end
+
+  def total_dis2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).dis2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_bali2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).bali2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_bale2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).bale2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_bals2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).bals2(row)
+      n += 1
+    end
+    return total
+  end
+
+  def total_rho4 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).rho4(row, new_order)
+      n += 1
+    end
+    return total
+  end
+
+  def total_rho5 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).rho5(row, new_order)
+      n += 1
+    end
+    return total
+  end
+
+  def total_rho6 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      total += Testtwo.find(n).rho6(row, new_order)
+      n += 1
+    end
+    return total
+  end
+
+  def alper2 new_order
+    total = 0
+    n = 1
+    new_order.split(',').each do |row|
+      bali2 = Testtwo.find(n).bali2(row)
+      bale2 = Testtwo.find(n).bale2(row)
+      bals2 = Testtwo.find(n).bals2(row)
+      total += ( bali2 < 0 ) ? bali2 : 0
+      total += ( bale2 < 0 ) ? bale2 : 0
+      total += ( bals2 < 0 ) ? bals2 : 0
+      n += 1
+    end
+    final = ((-total) * 100) / dif2(new_order)
     return final
   end
 

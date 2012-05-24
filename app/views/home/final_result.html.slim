@@ -1,6 +1,6 @@
 div
 	h3.alert.alert-info Final Result
-	- if @result1
+	- if @result1 and @result2
 		h3 Based on the test you have taken here are your results. Please call 408-555-1212 for explanations. 
 		table.table.table-striped
 			thead
@@ -16,7 +16,7 @@ div
 					td.tr Noticing
 					td.tc.blue DIF
 					td Self Regard
-					td.tc
+					td.tc= @dif2 
 					td.tr Well Developed
 
 				tr
@@ -25,7 +25,7 @@ div
 					td.tr Tolerance
 					td.tc.blue DIM I
 					td Meaningfullness of work
-					td.tc
+					td.tc= @total_dim_i2 
 					td.tr Well Developed
 
 				tr
@@ -34,7 +34,7 @@ div
 					td.tr Trainability
 					td.tc.blue DIM E
 					td Value of work
-					td.tc
+					td.tc= @total_dim_e2 
 					td.tr Well Developed
 
 				tr
@@ -43,7 +43,7 @@ div
 					td.tr Big Picture
 					td.tc.blue DIM S
 					td Organisational Capacity
-					td.tc
+					td.tc= @total_dim_s2 
 					td.tr Well Developed
 
 				tr
@@ -52,7 +52,7 @@ div
 					td.tr Problem Solving Style
 					td.tc.blue DIM
 					td Problem Solving Style
-					td.tc
+					td.tc= @dim2 
 					td.tr Effectively Responsive
 
 				tr
@@ -61,7 +61,7 @@ div
 					td.tr Realism / Idealism
 					td.tc.blue DIM%
 					td Role Indentity / Change
-					td.tc
+					td.tc= @dimper2
 					td.tr Above Average Development
 
 				tr
@@ -70,7 +70,7 @@ div
 					td.tr Relational Skills / Empathy
 					td.tc.blue INT I
 					td Own Problems
-					td.tc
+					td.tc= @total_int_i2
 					td.tr Well Developed
 
 				tr
@@ -79,7 +79,7 @@ div
 					td.tr Work Ethic
 					td.tc.blue INT E
 					td Practical Problems
-					td.tc
+					td.tc= @total_int_e2
 					td.tr Well Developed
 
 				tr
@@ -88,7 +88,7 @@ div
 					td.tr Strategic Planning
 					td.tc.blue INT S
 					td Care of Surroundings
-					td.tc
+					td.tc= @total_int_s2
 					td.tr Well Developed
 
 				tr
@@ -97,7 +97,7 @@ div
 					td.tr Problem Solving Ability
 					td.tc.blue INT
 					td #{"What's Important"}
-					td.tc
+					td.tc= @int2
 					td.tr Well Developed
 
 				tr
@@ -106,7 +106,7 @@ div
 					td.tr Problem Solving Energy
 					td.tc.blue INT%
 					td Self Criticism / Expectation
-					td.tc
+					td.tc= @intper2
 					td.tr Above Average Development
 
 				tr
@@ -115,7 +115,7 @@ div
 					td.tr Focus
 					td.tc.blue DI
 					td Assertiveness
-					td.tc
+					td.tc= @di2
 					td.tr Well Developed
 
 				tr
@@ -124,7 +124,7 @@ div
 					td.tr Follow Directions
 					td.tc.blue DIS
 					td Moral Conscience
-					td.tc
+					td.tc= @total_dis2
 					td.tr Very Well Developed
 
 				tr
@@ -133,7 +133,7 @@ div
 					td.tr Wok - Side Attitude
 					td.tc.blue AI%
 					td Self - Side Attitude
-					td.tc
+					td.tc= @alper2
 					td.tr High
 
 				tr
@@ -142,7 +142,7 @@ div
 					td.tr Part 1 Validity
 					td.tc.blue RHO
 					td Part 2 Validity
-					td.tc
+					td.tc= @total_rho4 + @total_rho5 + @total_rho6
 					td.tr Very Good
 
 		table.table.table-striped
@@ -159,7 +159,7 @@ div
 					td.tr Strong Capacity
 					td
 					td Self - Esteem
-					td.tc
+					td.tc= @total_bali2
 					td.tr Strong Capacity
 
 				tr
@@ -168,7 +168,7 @@ div
 					td.tr Strong Capacity
 					td
 					td Self - Concept
-					td.tc
+					td.tc= @total_bale2
 					td.tr Strong Capacity
 
 				tr
@@ -177,7 +177,7 @@ div
 					td.tr Strong Capacity
 					td
 					td Self - Image
-					td.tc
+					td.tc= @total_bals2
 					td.tr Strong Capacity
 
 	- else

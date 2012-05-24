@@ -101,19 +101,91 @@ div
 		table.table.table-striped
 			thead
 				tr
-					th Index Number
-					th Group Code
-					th Old Row Number
-					th New Row Number
+					th title="Index Number" I N
+					th title="Group Code" G C
+					th title="Old Row Number" O R N
+					th title="New Row Number" N R Number
+					th DIM I2
+					th DIM E2
+					th DIM S2
+					th INT I2
+					th INT E2
+					th INT S2
+					th INT2
+					th DIF2
+					th DIM2
+					th DI2
+					th DIS2
+					th Alper2
+					th VQ3
+					th VQ4
+					th DIMper2
+					th INTper2
+					th BALI2
+					th BALE2
+					th BALS2
+					th Rho4
+					th Rho5
+					th Rho6
 			tbody
-	  	
-			- n=1;@result2.item_order.split(",").each do |l|	
-				-	item = Testtwo.find_by_row_number(l.to_i)	
+			- n = 1
+			- new_order = @result2.item_order
+			- new_order.split(",").each do |l|
+				-	item = Testtwo.find(n)
 				tr
 					td= item.index_code
 					td= item.group_code
-					td= n
+					td= item.row_number
 					td= l
-					-	n=n+1					
+					td= item.dim_i2 l
+					td= item.dim_e2 l
+					td= item.dim_s2 l
+					td= item.int_i2 l
+					td= item.int_e2 l
+					td= item.int_s2 l
+					td
+					td
+					td
+					td
+					td= item.dis2 l
+					td
+					td
+					td
+					td
+					td
+					td= item.bali2 l
+					td= item.bale2 l
+					td= item.bals2 l
+					td= item.rho4 l, new_order
+					td= item.rho5 l, new_order
+					td= item.rho6 l, new_order
+					-	n += 1
+			tr
+				td
+				td
+				td= @avg_row_number
+				td= @avg_new_order
+				td= @total_dim_i2
+				td= @total_dim_e2
+				td= @total_dim_s2
+				td= @total_int_i2
+				td= @total_int_e2
+				td= @total_int_s2
+				td= @int2
+				td= @dif2
+				td= @dim2
+				td= @di2
+				td= @total_dis2
+				td= @alper2
+				td= @vq3
+				td= @vq4
+				td= @dimper2
+				td= @intper2
+				td= @total_bali2
+				td= @total_bale2
+				td= @total_bals2
+				td= @total_rho4
+				td= @total_rho5
+				td= @total_rho6			
 	- else			
 		h4.alert.alert-error Take test two for your list.			
