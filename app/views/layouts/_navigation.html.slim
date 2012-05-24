@@ -10,6 +10,8 @@
     li
       = link_to raw("<span class='#{ @result_tab }'>Results</span>"), :controller => 'home', :action => "result"
     li
+      = link_to raw("<span class='#{ @final_result_tab }'>Final Results</span>"), :controller => 'home', :action => "final_result"
+    li
       = link_to raw("<span class='#{ @report_tab }'>Report</span>"), :controller => 'home', :action => "report"
        
   /!  li

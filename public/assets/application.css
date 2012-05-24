@@ -722,6 +722,26 @@ body {
   color: #333333;
   background-image: url("../assets/body_bg.jpg");
 }
+
+/* line 63, ../../app/assets/stylesheets/application.css.scss */
+.tl {
+  text-align: left !important;
+}
+
+/* line 64, ../../app/assets/stylesheets/application.css.scss */
+.tc {
+  text-align: center !important;
+}
+
+/* line 65, ../../app/assets/stylesheets/application.css.scss */
+.tr {
+  text-align: right !important;
+}
+
+/* line 67, ../../app/assets/stylesheets/application.css.scss */
+.blue {
+  color: #00F;
+}
 /* line 23, ../../../../.rvm/gems/ruby-1.9.2-p320/gems/bootstrap-sass-2.0.3/vendor/assets/stylesheets/bootstrap/_mixins.scss */
 .clearfix {
   *zoom: 1;

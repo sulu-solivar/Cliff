@@ -75,10 +75,46 @@ class HomeController < ApplicationController
       @dimper1 = (@dim1 * 100) / @dif1
       @intper1 = (@int1 * 100) / @dif1
     end
-
-
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
+  end
 
+  def final_result
+    @final_result_tab = 'active'
+    @page_header = "Final Results - Cliff's Hartman Model"
+    
+    @result1 = Result.find_by_user_id_and_test_num(current_user.id,1)
+
+    if defined? @result1.item_order
+      @avg_row_number = Testone.avg_row_number
+      @avg_new_order = Testone.avg_new_order @result1.item_order
+      @total_dim_i1 = total_dim_i1 @result1.item_order 
+      @total_dim_e1 = total_dim_e1 @result1.item_order
+      @total_dim_s1 = total_dim_s1 @result1.item_order
+      
+      @total_int_i1 = total_int_i1 @result1.item_order
+      @total_int_e1 = total_int_e1 @result1.item_order
+      @total_int_s1 = total_int_s1 @result1.item_order
+      @total_dis1 = total_dis1 @result1.item_order
+      @total_bali1 = total_bali1 @result1.item_order
+      @total_bale1 = total_bale1 @result1.item_order
+      @total_bals1 = total_bals1 @result1.item_order
+      @total_rho1 = total_rho1 @result1.item_order
+      @total_rho2 = total_rho2 @result1.item_order
+      @total_rho3 = total_rho3 @result1.item_order
+
+      @dif1 = dif1 @result1.item_order
+      @int1 = int1 @result1.item_order
+      @dim1 = dim1 @result1.item_order
+      @di1 = di1 @result1.item_order
+
+      @alper1 = (alper1 @result1.item_order).to_s + ' %'
+
+      @vq1 = @int1 + @dif1 + @dim1 + @total_dis1
+      @vq2 = @int1 + @dim1 + @total_dis1
+      @dimper1 = (@dim1 * 100) / @dif1
+      @intper1 = (@int1 * 100) / @dif1
+    end
+    @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
   end
 
   def update_list1

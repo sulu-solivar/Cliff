@@ -1,0 +1,184 @@
+div
+	h3.alert.alert-info Final Result
+	- if @result1
+		h3 Based on the test you have taken here are your results. Please call 408-555-1212 for explanations. 
+		table.table.table-striped
+			thead
+				tr
+					th.tc colspan="3" Part 1
+					th
+					th.tc colspan="3"  Part 2
+
+			tbody
+				tr
+					td Very Well Developed
+					td.tc= @dif1 
+					td.tr Noticing
+					td.tc.blue DIF
+					td Self Regard
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Very Well Developed
+					td.tc= @total_dim_i1 
+					td.tr Tolerance
+					td.tc.blue DIM I
+					td Meaningfullness of work
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Very Well Developed
+					td.tc= @total_dim_e1 
+					td.tr Trainability
+					td.tc.blue DIM E
+					td Value of work
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Very Well Developed
+					td.tc= @total_dim_s1 
+					td.tr Big Picture
+					td.tc.blue DIM S
+					td Organisational Capacity
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Effectively Responsive
+					td.tc= @dim1 
+					td.tr Problem Solving Style
+					td.tc.blue DIM
+					td Problem Solving Style
+					td.tc
+					td.tr Effectively Responsive
+
+				tr
+					td Slightly Realistic
+					td.tc= @dimper1
+					td.tr Realism / Idealism
+					td.tc.blue DIM%
+					td Role Indentity / Change
+					td.tc
+					td.tr Above Average Development
+
+				tr
+					td Very Well Developed
+					td.tc= @total_int_i1
+					td.tr Relational Skills / Empathy
+					td.tc.blue INT I
+					td Own Problems
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Well Developed
+					td.tc= @total_int_e1
+					td.tr Work Ethic
+					td.tc.blue INT E
+					td Practical Problems
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Well Developed
+					td.tc= @total_int_s1
+					td.tr Strategic Planning
+					td.tc.blue INT S
+					td Care of Surroundings
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Well Developed
+					td.tc= @int1
+					td.tr Problem Solving Ability
+					td.tc.blue INT
+					td #{"What's Important"}
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Above Average Development
+					td.tc= @intper1
+					td.tr Problem Solving Energy
+					td.tc.blue INT%
+					td Self Criticism / Expectation
+					td.tc
+					td.tr Above Average Development
+
+				tr
+					td Above Average Development
+					td.tc= @di1
+					td.tr Focus
+					td.tc.blue DI
+					td Assertiveness
+					td.tc
+					td.tr Well Developed
+
+				tr
+					td Very Well Developed
+					td.tc= @total_dis1
+					td.tr Follow Directions
+					td.tc.blue DIS
+					td Moral Conscience
+					td.tc
+					td.tr Very Well Developed
+
+				tr
+					td High
+					td.tc= @alper1
+					td.tr Wok - Side Attitude
+					td.tc.blue AI%
+					td Self - Side Attitude
+					td.tc
+					td.tr High
+
+				tr
+					td Very Good
+					td.tc= @total_rho1 + @total_rho2 + @total_rho3
+					td.tr Part 1 Validity
+					td.tc.blue RHO
+					td Part 2 Validity
+					td.tc
+					td.tr Very Good
+
+		table.table.table-striped
+			thead
+				tr
+					th.tc colspan="3" Part 1 Balance Indicators
+					th
+					th.tc colspan="3"  Part 2 Balance Indicators
+
+			tbody
+				tr
+					td People
+					td.tc= @total_bali1
+					td.tr Strong Capacity
+					td
+					td Self - Esteem
+					td.tc
+					td.tr Strong Capacity
+
+				tr
+					td Tasks
+					td.tc= @total_bale1
+					td.tr Strong Capacity
+					td
+					td Self - Concept
+					td.tc
+					td.tr Strong Capacity
+
+				tr
+					td Decision Making
+					td.tc= @total_bals1
+					td.tr Strong Capacity
+					td
+					td Self - Image
+					td.tc
+					td.tr Strong Capacity
+
+	- else
+		h4.alert.alert-error Take test 1 and test 2 for results
