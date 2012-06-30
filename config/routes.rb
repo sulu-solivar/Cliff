@@ -9,7 +9,7 @@ Cliff::Application.routes.draw do
     root :to => 'home#index'
   end
 
-  get "/home/my_list"
+  get "/home/my_list", :as => "home"
   get "/home/testone"
   get "/home/testtwo"
   get "/home/resultone"

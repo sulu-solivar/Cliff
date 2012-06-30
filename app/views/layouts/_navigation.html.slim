@@ -1,10 +1,10 @@
-= link_to "Startup Quotient", root_path, :class => 'brand'
+= link_to "Startup Quotient", home_path, :class => 'brand'
 - if user_signed_in?
   ul.nav
     li
-      = link_to raw("<span class='#{ @test_one_tab }'>Part One</span>"), home_testone_path
+      = link_to raw("<span class='#{ @test_one_tab }'>Part-One</span>"), home_testone_path
     li
-      = link_to raw("<span class='#{ @test_two_tab }'>Part Two</span>"), home_testtwo_path
+      = link_to raw("<span class='#{ @test_two_tab }'>Part-Two</span>"), home_testtwo_path
     li
       = link_to raw("<span class='#{ @final_result_tab }'>Report</span>"), :controller => 'home', :action => "final_result"
 
