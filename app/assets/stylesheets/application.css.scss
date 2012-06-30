@@ -11,56 +11,9 @@
  *= require jquery.ui.all
  *= require_self
  *= require bootstrap_and_overrides
- *= require home
- *= require navbar
+ *= require mystyle
  *= require sortable
- *= require users
+
  
 */
 
-.content_panel {
-  background-color: #FFF;
-  margin: 0 -20px 20px -20px;
-  /* negative indent the amount of the padding to maintain the grid system */
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
-  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
-}
-
-.content_header {
-  background:#dee1e2;
-  background-image:-moz-linear-gradient(top, #EEEEEE, #dee1e2);
-  background-image:-ms-linear-gradient(top, #EEEEEE, #dee1e2);
-  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#EEEEEE), to(#dee1e2));
-  background-image:-webkit-linear-gradient(top, #EEEEEE, #dee1e2);
-  background-image:-o-linear-gradient(top, #EEEEEE, #dee1e2);
-  background-image:linear-gradient(top, #EEEEEE, #dee1e2);
-  background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#dee1e2', GradientType=0);
-  -moz-border-radius: 10px 10px 0px 0px;
-  -webkit-border-radius: 10px 10px 0px 0px;
-  border-radius: 10px 10px 0px 0px;
-  padding: 20px;
-  /*border-bottom: 1px solid #E0E0E0;*/
-}
-
-.content {
-  padding: 20px;
-}
-
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  color: #333333;
-  background-image:url('../assets/body_bg.jpg');
-}
-
-.tl { text-align: left !important; }
-.tc { text-align: center !important; }
-.tr { text-align: right !important; }
-
-.blue { color: #00F; }

@@ -1,0 +1,6 @@
+/* first pull in bootstrap style sheer */
+@import url(bootstrap.css);
+
+.row {
+	padding: 20px 0;
+}

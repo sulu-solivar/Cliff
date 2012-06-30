@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
-gem 'rails', '3.2.2'
+source 'http://rubygems.org'
+gem 'rails', '3.2.6'
 
 gem "devise", ">= 2.1.0.rc"
-gem "omniauth"
+gem "omniauth", '>= 0.2.6'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'nifty-generators'

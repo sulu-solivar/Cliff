@@ -24,10 +24,7 @@
           %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
             %a.close{"data-dismiss" => "alert"} ×
             = msg
-        .content_panel
-          .content_header 
-            %h2= page_header
-          .content
-            = yield
-            .clearfix
-          %footer
+
+        = yield
+        .clearfix
+        %footer
