@@ -10,6 +10,8 @@ Cliff::Application.routes.draw do
   end
 
   get "/home/my_list", :as => "home"
+  get "/home/faq", as: "faq"
+  get "/home/self", as: "self"
   get "/home/testone"
   get "/home/testtwo"
   get "/home/resultone"

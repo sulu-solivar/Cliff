@@ -2,6 +2,8 @@
 - if user_signed_in?
   ul.nav
     li
+      = link_to(raw("<span class='#{ @edit_account_tab }'>Profile</span>"), edit_user_registration_path)
+    li
       = link_to raw("<span class='#{ @test_one_tab }'>Part-One</span>"), home_testone_path
     li
       = link_to raw("<span class='#{ @test_two_tab }'>Part-Two</span>"), home_testtwo_path
@@ -10,13 +12,11 @@
 
 
 ul.nav.pull-right
+  li
+    = link_to(raw("<span class='#{ @edit_account_tab }'>FAQs</span>"), faq_path)
   - if user_signed_in?
     li
-      = link_to(raw("<span class='#{ @edit_account_tab }'>Profile</span>"), edit_user_registration_path)
-  - else
-    li
-      = link_to(raw("<span class='#{ @sign_up_tab }'>Sign up</span>"), new_user_registration_path)
-  - if user_signed_in?
+      = link_to(raw("<span class='#{ @edit_account_tab }'>Self-Learning</span>"), self_path)
     li
       = link_to(raw("<span>Logout</span>"), destroy_user_session_path, :method=>'delete')
   - else
