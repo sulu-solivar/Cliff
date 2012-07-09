@@ -186,13 +186,12 @@ class HomeController < ApplicationController
       test = params[:test]
       @result = Result.find_by_user_id_and_test_num(current_user.id,test)
       if @result.blank?
-        @result = Result.create(:user_id => current_user.id,:item_order => items,:test_num => test )
-        flash[:notice] ="Test One result saved!"  
-        redirect_to :action =>"result"
+        @result = Result.create( :user_id => current_user.id,:item_order => items,:test_num => test )
       else
-        flash[:error] ="Test One result already saved!"  
-        redirect_to :action =>'testone'
+        @result.update_attributes( :user_id => current_user.id, :item_order => items, :test_num => test )
       end 
+      flash[:notice] ="Test One result saved!"  
+      redirect_to :action =>"result"
     end
   end
 
@@ -201,14 +200,13 @@ class HomeController < ApplicationController
       items = params[:items][:order]
       test = params[:test]
       @result = Result.find_by_user_id_and_test_num(current_user.id,test)
-    if @result.blank?
+      if @result.blank?
         @result = Result.create(:user_id => current_user.id,:item_order => items,:test_num => test )
-        flash[:notice] ="Test two result saved!"  
-        redirect_to :action =>"result"
       else
-        flash[:error] ="Test two result already saved!"  
-        redirect_to :action =>'testtwo'
+        @result.update_attributes( :user_id => current_user.id, :item_order => items, :test_num => test )
       end 
+      flash[:notice] ="Test two result saved!"  
+      redirect_to :action =>"result"
     end
   end
 
