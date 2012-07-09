@@ -74,6 +74,7 @@ class HomeController < ApplicationController
       @vq2 = @int1 + @dim1 + @total_dis1
       @dimper1 = (@dim1 * 100) / @dif1
       @intper1 = (@int1 * 100) / @dif1
+
     end
 
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
@@ -144,6 +145,12 @@ class HomeController < ApplicationController
       @vq2 = @int1 + @dim1 + @total_dis1
       @dimper1 = (@dim1 * 100) / @dif1
       @intper1 = (@int1 * 100) / @dif1
+      
+      # ratings
+      @dif1_rating = dif_rating @dif1 
+      @dim_i1_rating = dim_rating @total_dim_i1  
+      @dim_e1_rating = dim_rating @total_dim_e1  
+      @dim_s1_rating = dim_rating @total_dim_s1
     end
     
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
@@ -176,11 +183,16 @@ class HomeController < ApplicationController
       @vq4 = @int2 + @dim2 + @total_dis2
       @dimper2 = (@dim2 * 100) / @dif2
       @intper2 = (@int2 * 100) / @dif2
+
+      # ratings
+      @dif2_rating = dif_rating @dif2
+      @dim_i2_rating = dim_rating @total_dim_i2
+      @dim_e2_rating = dim_rating @total_dim_e2
+      @dim_s2_rating = dim_rating @total_dim_s2
     end
   end
 
   def update_list1
-    #render :text => params[:test].inspect;return;
     if request.post?
       items = params[:items][:order]
       test = params[:test]
@@ -551,4 +563,26 @@ class HomeController < ApplicationController
     return final
   end
 
+  # rating methods
+  def dif_rating percent
+    rate = "Excellent" if percent <= 30
+    rate = "Very Good" if percent >= 31 and percent <= 40
+    rate = "Good" if percent >= 41 and percent <= 50
+    rate = "Average" if percent >= 51 and percent <= 60
+    rate = "Poor" if percent >= 61 and percent <= 70
+    rate = "Very Poor" if percent >= 71 and percent <= 80
+    rate = "Bad" if percent > 81
+    return rate
+  end
+
+  def dim_rating percent
+    rate = "Excellent" if percent <= 7
+    rate = "Very Good" if percent >= 8 and percent <= 14
+    rate = "Good" if percent >= 15 and percent <= 21
+    rate = "Average" if percent >= 22 and percent <= 28
+    rate = "Poor" if percent >= 29 and percent <= 35
+    rate = "Very Poor" if percent >= 36 and percent <= 42
+    rate = "Bad" if percent > 43
+    return rate
+  end
 end
