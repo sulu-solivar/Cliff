@@ -47,103 +47,103 @@ div
 					td.tr= @dim_s2_rating
 
 				tr
-					td Effectively Responsive
+					td= @dim1_rating
 					td.tc= @dim1 
-					td.tr Problem Solving Style
+					td.tr Sense of Proportion
 					td.tc.blue DIM
-					td Problem Solving Style
+					td Sense of Proportion
 					td.tc= @dim2 
-					td.tr Effectively Responsive
+					td.tr= @dim2_rating
 
 				tr
-					td Slightly Realistic
+					td= @dimper1_rating
 					td.tc= @dimper1
-					td.tr Realism / Idealism
+					td.tr Sense of Meaning
 					td.tc.blue DIM%
-					td Role Indentity / Change
+					td Sense of Meaning
 					td.tc= @dimper2
-					td.tr Above Average Development
+					td.tr= @dimper2_rating
 
 				tr
-					td Very Well Developed
+					td= @total_int_i1_rating
 					td.tc= @total_int_i1
-					td.tr Relational Skills / Empathy
+					td.tr Empathy
 					td.tc.blue INT I
-					td Own Problems
+					td Discerning self relevance 
 					td.tc= @total_int_i2
-					td.tr Well Developed
+					td.tr= @total_int_i2_rating
 
 				tr
-					td Well Developed
+					td= @total_int_e1_rating
 					td.tc= @total_int_e1
-					td.tr Work Ethic
+					td.tr Discerning practical relevance
 					td.tc.blue INT E
-					td Practical Problems
+					td Discerning practical relevance
 					td.tc= @total_int_e2
-					td.tr Well Developed
+					td.tr= @total_int_e2_rating
 
 				tr
-					td Well Developed
+					td= @total_int_s1_rating
 					td.tc= @total_int_s1
-					td.tr Strategic Planning
+					td.tr Discerning conceptual relevance
 					td.tc.blue INT S
-					td Care of Surroundings
+					td Discerning self-concept relevance
 					td.tc= @total_int_s2
-					td.tr Well Developed
+					td.tr= @total_int_s2_rating
 
 				tr
-					td Well Developed
+					td= @int1_rating
 					td.tc= @int1
-					td.tr Problem Solving Ability
+					td.tr Integration
 					td.tc.blue INT
-					td #{"What's Important"}
+					td Integration
 					td.tc= @int2
-					td.tr Well Developed
+					td.tr= @int2_rating
 
 				tr
-					td Above Average Development
+					td= @intper1_rating
 					td.tc= @intper1
-					td.tr Problem Solving Energy
+					td.tr Relative Integration
 					td.tc.blue INT%
-					td Self Criticism / Expectation
+					td Relative Integration
 					td.tc= @intper2
-					td.tr Above Average Development
+					td.tr= @intper2_rating
 
 				tr
-					td Above Average Development
+					td= @di1_rating
 					td.tc= @di1
-					td.tr Focus
+					td.tr Dimensional Integration
 					td.tc.blue DI
-					td Assertiveness
+					td Dimensional Integration
 					td.tc= @di2
-					td.tr Well Developed
+					td.tr= @di2_rating
 
 				tr
-					td Very Well Developed
+					td= @total_dis1_rating
 					td.tc= @total_dis1
-					td.tr Follow Directions
+					td.tr Distortion
 					td.tc.blue DIS
-					td Moral Conscience
+					td Distortion
 					td.tc= @total_dis2
-					td.tr Very Well Developed
+					td.tr= @total_dis2_rating
 
 				tr
-					td High
-					td.tc= @alper1
-					td.tr Wok - Side Attitude
+					td= @alper1_rating
+					td.tc= @alper1.to_s + ' %'
+					td.tr Attitude Index
 					td.tc.blue AI%
-					td Self - Side Attitude
-					td.tc= @alper2
-					td.tr High
+					td Attitude Index
+					td.tc= @alper2.to_s + ' %'
+					td.tr= @alper2_rating
 
 				tr
-					td Very Good
+					td= @tota_rho123_rating
 					td.tc= @total_rho1 + @total_rho2 + @total_rho3
 					td.tr Part 1 Validity
 					td.tc.blue RHO
 					td Part 2 Validity
 					td.tc= @total_rho4 + @total_rho5 + @total_rho6
-					td.tr Very Good
+					td.tr= @tota_rho456_rating
 
 		table.table.table-striped
 			thead
@@ -156,29 +156,29 @@ div
 				tr
 					td People
 					td.tc= @total_bali1
-					td.tr Strong Capacity
-					td
+					td.tr= @total_bali1_rating
+					td BAL I
 					td Self - Esteem
 					td.tc= @total_bali2
-					td.tr Strong Capacity
+					td.tr= @total_bali2_rating
 
 				tr
 					td Tasks
 					td.tc= @total_bale1
-					td.tr Strong Capacity
-					td
+					td.tr= @total_bale1_rating
+					td BAL E
 					td Self - Concept
 					td.tc= @total_bale2
-					td.tr Strong Capacity
+					td.tr= @total_bale2_rating
 
 				tr
 					td Decision Making
 					td.tc= @total_bals1
-					td.tr Strong Capacity
-					td
+					td.tr= @total_bals1_rating
+					td BAL S
 					td Self - Image
 					td.tc= @total_bals2
-					td.tr Strong Capacity
+					td.tr= @total_bals2_rating
 
 	- else
 		h4.alert.alert-error Take test 1 and test 2 for results

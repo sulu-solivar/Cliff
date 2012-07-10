@@ -139,7 +139,7 @@ class HomeController < ApplicationController
       @dim1 = dim1 @result1.item_order
       @di1 = di1 @result1.item_order
 
-      @alper1 = (alper1 @result1.item_order).to_s + ' %'
+      @alper1 = alper1 @result1.item_order
 
       @vq1 = @int1 + @dif1 + @dim1 + @total_dis1
       @vq2 = @int1 + @dim1 + @total_dis1
@@ -147,10 +147,24 @@ class HomeController < ApplicationController
       @intper1 = (@int1 * 100) / @dif1
       
       # ratings
-      @dif1_rating = dif_rating @dif1 
-      @dim_i1_rating = dim_rating @total_dim_i1  
-      @dim_e1_rating = dim_rating @total_dim_e1  
-      @dim_s1_rating = dim_rating @total_dim_s1
+      @dif1_rating = rating @dif1, :r1 => 30, :r2 => 31, :r3 => 40, :r4 => 41, :r5 => 50, :r6 => 51, :r7 => 60, :r8 => 61, :r9 => 70, :r10 => 71, :r11 => 80, :r12 => 81
+      @dim_i1_rating = rating @total_dim_i1, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @dim_e1_rating = rating @total_dim_e1, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @dim_s1_rating = rating @total_dim_s1, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @dim1_rating = rating @dim1, :r1 => 3, :r2 => 4, :r3 => 7, :r4 => 8, :r5 => 11, :r6 => 12, :r7 => 15, :r8 => 16, :r9 => 19, :r10 => 20, :r11 => 23, :r12 => 24
+      @dimper1_rating = rating @dimper1, :r1 => 10, :r2 => 11, :r3 => 20, :r4 => 21, :r5 => 30, :r6 => 31, :r7 => 40, :r8 => 41, :r9 => 50, :r10 => 51, :r11 => 60, :r12 => 61
+      @total_int_i1_rating = rating @total_int_i1, :r1 => 0, :r2 => 1, :r3 => 5, :r4 => 6, :r5 => 12, :r6 => 13, :r7 => 19, :r8 => 20, :r9 => 26, :r10 => 27, :r11 => 33, :r12 => 34
+      @total_int_e1_rating = rating @total_int_e1, :r1 => 0, :r2 => 1, :r3 => 5, :r4 => 6, :r5 => 12, :r6 => 13, :r7 => 19, :r8 => 20, :r9 => 26, :r10 => 27, :r11 => 33, :r12 => 34
+      @total_int_s1_rating = rating @total_int_s1, :r1 => 0, :r2 => 1, :r3 => 5, :r4 => 6, :r5 => 12, :r6 => 13, :r7 => 19, :r8 => 20, :r9 => 26, :r10 => 27, :r11 => 33, :r12 => 34
+      @int1_rating = rating @int1, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @intper1_rating = rating @intper1, :r1 => 10, :r2 => 11, :r3 => 20, :r4 => 21, :r5 => 30, :r6 => 31, :r7 => 40, :r8 => 41, :r9 => 50, :r10 => 51, :r11 => 60, :r12 => 61
+      @di1_rating = rating @di1, :r1 => 3, :r2 => 4, :r3 => 7, :r4 => 8, :r5 => 11, :r6 => 12, :r7 => 15, :r8 => 16, :r9 => 19, :r10 => 20, :r11 => 23, :r12 => 24
+      @total_dis1_rating = rating @total_dis1, :r1 => 0, :r2 => 1, :r3 => 1, :r4 => 2, :r5 => 2, :r6 => 4, :r7 => 4, :r8 => 5, :r9 => 5, :r10 => 6, :r11 => 6, :r12 => 8
+      @alper1_rating = rating @alper1, :r1 => 53, :r2 => 54, :r3 => 57, :r4 => 58, :r5 => 61, :r6 => 62, :r7 => 65, :r8 => 66, :r9 => 69, :r10 => 70, :r11 => 73, :r12 => 74
+      @tota_rho123_rating = rho_rating(@total_rho1 + @total_rho2 + @total_rho3)
+      @total_bali1_rating = bal_rating @total_bali1, :r1 => 'Strongly aversive towards individuality of other people', :r2 => 'Aversive tendencies towards individuality of other people', :r3 => 'Balanced valence towards individuality of other people', :r4 => 'Tendencies to be overly-attracted towards valuing individuality of other people', :r5 => 'Strongly over-attracted towards valuing individuality of other people'
+      @total_bale1_rating = bal_rating @total_bale1, :r1 => 'Strongly aversive towards practicality', :r2 => 'Aversive tendencies towards practicality', :r3 => 'Balanced valence towards practicality', :r4 => 'Tendencies to be overly-attracted towards valuing practicality', :r5 => 'Strongly over-attracted towards valuing practicality'
+      @total_bals1_rating = bal_rating @total_bals1, :r1 => 'Strongly aversive towards order and systems in the world', :r2 => 'Aversive tendencies towards order and systems in the world', :r3 => 'Balanced valence towards order and systems in the world', :r4 => 'Tendencies to be overly-attracted towards valuing order and systems in the world', :r5 => 'Strongly over-attracted towards valuing order and systems in the world'
     end
     
     @result2 = Result.find_by_user_id_and_test_num(current_user.id,2)
@@ -177,7 +191,7 @@ class HomeController < ApplicationController
       @dim2 = dim2 @result2.item_order
       @di2 = di2 @result2.item_order
 
-      @alper2 = (alper2 @result2.item_order).to_s + ' %'
+      @alper2 = alper2 @result2.item_order
 
       @vq3 = @int2 + @dif2 + @dim2 + @total_dis2
       @vq4 = @int2 + @dim2 + @total_dis2
@@ -185,10 +199,24 @@ class HomeController < ApplicationController
       @intper2 = (@int2 * 100) / @dif2
 
       # ratings
-      @dif2_rating = dif_rating @dif2
-      @dim_i2_rating = dim_rating @total_dim_i2
-      @dim_e2_rating = dim_rating @total_dim_e2
-      @dim_s2_rating = dim_rating @total_dim_s2
+      @dif2_rating = rating @dif2, :r1 => 30, :r2 => 31, :r3 => 40, :r4 => 41, :r5 => 50, :r6 => 51, :r7 => 60, :r8 => 61, :r9 => 70, :r10 => 71, :r11 => 80, :r12 => 81
+      @dim_i2_rating = rating @total_dim_i2, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @dim_e2_rating = rating @total_dim_e2, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @dim_s2_rating = rating @total_dim_s2, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @dim2_rating = rating @dim2, :r1 => 3, :r2 => 4, :r3 => 7, :r4 => 8, :r5 => 11, :r6 => 12, :r7 => 15, :r8 => 16, :r9 => 19, :r10 => 20, :r11 => 23, :r12 => 24
+      @dimper2_rating = rating @dimper2, :r1 => 10, :r2 => 11, :r3 => 20, :r4 => 21, :r5 => 30, :r6 => 31, :r7 => 40, :r8 => 41, :r9 => 50, :r10 => 51, :r11 => 60, :r12 => 61
+      @total_int_i2_rating = rating @total_int_i2, :r1 => 0, :r2 => 1, :r3 => 5, :r4 => 6, :r5 => 12, :r6 => 13, :r7 => 19, :r8 => 20, :r9 => 26, :r10 => 27, :r11 => 33, :r12 => 34
+      @total_int_e2_rating = rating @total_int_e2, :r1 => 0, :r2 => 1, :r3 => 5, :r4 => 6, :r5 => 12, :r6 => 13, :r7 => 19, :r8 => 20, :r9 => 26, :r10 => 27, :r11 => 33, :r12 => 34
+      @total_int_s2_rating = rating @total_int_s2, :r1 => 0, :r2 => 1, :r3 => 5, :r4 => 6, :r5 => 12, :r6 => 13, :r7 => 19, :r8 => 20, :r9 => 26, :r10 => 27, :r11 => 33, :r12 => 34
+      @int2_rating = rating @int2, :r1 => 7, :r2 => 8, :r3 => 14, :r4 => 15, :r5 => 21, :r6 => 22, :r7 => 28, :r8 => 29, :r9 => 35, :r10 => 36, :r11 => 42, :r12 => 43
+      @intper2_rating = rating @intper2, :r1 => 10, :r2 => 11, :r3 => 20, :r4 => 21, :r5 => 30, :r6 => 31, :r7 => 40, :r8 => 41, :r9 => 50, :r10 => 51, :r11 => 60, :r12 => 61
+      @di2_rating = rating @di2, :r1 => 3, :r2 => 4, :r3 => 7, :r4 => 8, :r5 => 11, :r6 => 12, :r7 => 15, :r8 => 16, :r9 => 19, :r10 => 20, :r11 => 23, :r12 => 24
+      @total_dis2_rating = rating @total_dis2, :r1 => 0, :r2 => 1, :r3 => 1, :r4 => 2, :r5 => 2, :r6 => 4, :r7 => 4, :r8 => 5, :r9 => 5, :r10 => 6, :r11 => 6, :r12 => 8
+      @alper2_rating = rating @alper2, :r1 => 53, :r2 => 54, :r3 => 57, :r4 => 58, :r5 => 61, :r6 => 62, :r7 => 65, :r8 => 66, :r9 => 69, :r10 => 70, :r11 => 73, :r12 => 74
+      @tota_rho456_rating = rho_rating(@total_rho4 + @total_rho5 + @total_rho6)
+      @total_bali2_rating = bal_rating @total_bali2, :r1 => 'Strongly aversive towards your own individuality ', :r2 => 'Aversive tendencies towards your own individuality', :r3 => 'Balanced valence towards your own  individuality ', :r4 => 'Tendencies to be overly-attracted towards valuing your own individuality ', :r5 => 'Strongly over-attracted towards valuing your own individuality'
+      @total_bale2_rating = bal_rating @total_bale2, :r1 => 'Strongly aversive towards valuing your roles in life', :r2 => 'Aversive tendencies towards valuing your roles in life', :r3 => 'Balanced valence towards your roles in life', :r4 => 'Tendencies to be overly-attracted towards valuing your roles in life', :r5 => 'Strongly over-attracted towards valuing your roles in life'
+      @total_bals2_rating = bal_rating @total_bals2, :r1 => 'Strongly aversive towards your self-concept', :r2 => 'Aversive tendencies towards your self-concept', :r3 => 'Balanced valence towards your self-concept', :r4 => 'Tendencies to be overly-attracted towards valuing your self-concept', :r5 => 'Strongly over-attracted towards valuing your self-concept'
     end
   end
 
@@ -564,25 +592,36 @@ class HomeController < ApplicationController
   end
 
   # rating methods
-  def dif_rating percent
-    rate = "Excellent" if percent <= 30
-    rate = "Very Good" if percent >= 31 and percent <= 40
-    rate = "Good" if percent >= 41 and percent <= 50
-    rate = "Average" if percent >= 51 and percent <= 60
-    rate = "Poor" if percent >= 61 and percent <= 70
-    rate = "Very Poor" if percent >= 71 and percent <= 80
-    rate = "Bad" if percent > 81
+
+  def rating value, rates = {}
+    rate = "Excellent" if value <= rates[:r1]
+    rate = "Very Good" if value >= rates[:r2] and value <= rates[:r3]
+    rate = "Good" if value >= rates[:r4] and value <= rates[:r5]
+    rate = "Average" if value >= rates[:r6] and value <= rates[:r7]
+    rate = "Poor" if value >= rates[:r8] and value <= rates[:r9]
+    rate = "Very Poor" if value >= rates[:r10] and value <= rates[:r11]
+    rate = "Bad" if value >= rates[:r12]
     return rate
   end
 
-  def dim_rating percent
-    rate = "Excellent" if percent <= 7
-    rate = "Very Good" if percent >= 8 and percent <= 14
-    rate = "Good" if percent >= 15 and percent <= 21
-    rate = "Average" if percent >= 22 and percent <= 28
-    rate = "Poor" if percent >= 29 and percent <= 35
-    rate = "Very Poor" if percent >= 36 and percent <= 42
-    rate = "Bad" if percent > 43
+  def rho_rating value
+    rate = "Excellent" if value >= 0.925
+    rate = "Very Good" if value >= 0.850 and value <= 0.924
+    rate = "Good" if value >= 0.775 and value <= 0.849
+    rate = "Average" if value >= 0.700 and value <= 0.774
+    rate = "Poor" if value >= 0.625 and value <= 0.699
+    rate = "Very Poor" if value >= 0.550 and value <= 0.624
+    rate = "Bad" if value <= 0.549 
     return rate
   end
+
+  def bal_rating value, rates = {}
+    rate = rates[:r1] if value <= -15
+    rate = rates[:r2] if value >= -14 and value <= -6
+    rate = rates[:r3] if value >= -5 and value <= 5
+    rate = rates[:r4] if value >= 6 and value <= 14
+    rate = rates[:r5] if value >= 15
+    return rate
+  end
+
 end
