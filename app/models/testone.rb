@@ -18,23 +18,23 @@ class Testone < ActiveRecord::Base
 
 	def int_i1 new_row_number
 		int1 = self.dim1(new_row_number) - 2
-		return ((self.group_code == 'I') and (int1 > 0)) ? int1 : 0
+		return ((self.group_code == 'I') && (int1 > 0)) ? int1 : 0
 	end
 
 	def int_e1 new_row_number
 		int1 = self.dim1(new_row_number) - 2
-		return ((self.group_code == 'E') and (int1 > 0)) ? int1 : 0
+		return ((self.group_code == 'E') && (int1 > 0)) ? int1 : 0
 	end
 
 	def int_s1 new_row_number
 		int1 = self.dim1(new_row_number) - 2
-		return ((self.group_code == 'S') and (int1 > 0)) ? int1 : 0
+		return ((self.group_code == 'S') && (int1 > 0)) ? int1 : 0
 	end
 
 	def dis1 new_row_number
-		check1 = ( new_row_number.to_i < 10 ) and ( self.row_number < 10 )
-		check2 = ( new_row_number.to_i > 9 ) and ( self.row_number > 9 )
-		main_check = check1 or check2
+		check1 = ( new_row_number.to_i < 10 ) && ( self.row_number < 10 )
+		check2 = ( new_row_number.to_i > 9 ) && ( self.row_number > 9 )
+		main_check = check1 || check2
 		final = ( main_check == true ) ? 0 : 1
 		return final
 	end

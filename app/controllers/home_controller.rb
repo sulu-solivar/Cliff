@@ -1,6 +1,11 @@
 class HomeController < ApplicationController
   before_filter :authenticate_user!, :except =>'index'
 
+  def result_vars
+  	@result1 = Result.find_by_user_id_and_test_num(current_user,1)
+    @result2 = Result.find_by_user_id_and_test_num(current_user,2)
+  end
+  
   def index
     @page_header = "Welcome - Cliff's Hartman Model"
     @users = User.all
@@ -9,14 +14,18 @@ class HomeController < ApplicationController
   def my_list
     @home_tab = 'active'
     @page_header = "Home - Cliff's Hartman Model"
-  	@result1 = Result.find_by_user_id_and_test_num(current_user,1)
-    @result2 = Result.find_by_user_id_and_test_num(current_user,2)
-  end	
+    result_vars
+  end
   
 	def testone
     @test_one_tab = 'active'
     @page_header = "Test One Items - Cliff's Hartman Model"
-  	@list = Testone.all
+    result_vars
+    if @result1
+      @current_order = @result1.item_order.split(',')
+    else
+      @current_order = Testone.all.map{ |t| t.id }
+    end
   end	
 
 	def testtwo
@@ -133,6 +142,7 @@ class HomeController < ApplicationController
       @total_rho1 = total_rho1 @result1.item_order
       @total_rho2 = total_rho2 @result1.item_order
       @total_rho3 = total_rho3 @result1.item_order
+      @rho1 = final_rho @total_rho1, @total_rho2, @total_rho3
 
       @dif1 = dif1 @result1.item_order
       @int1 = int1 @result1.item_order
@@ -161,7 +171,7 @@ class HomeController < ApplicationController
       @di1_rating = rating @di1, :r1 => 3, :r2 => 4, :r3 => 7, :r4 => 8, :r5 => 11, :r6 => 12, :r7 => 15, :r8 => 16, :r9 => 19, :r10 => 20, :r11 => 23, :r12 => 24
       @total_dis1_rating = rating @total_dis1, :r1 => 0, :r2 => 1, :r3 => 1, :r4 => 2, :r5 => 2, :r6 => 4, :r7 => 4, :r8 => 5, :r9 => 5, :r10 => 6, :r11 => 6, :r12 => 8
       @alper1_rating = rating @alper1, :r1 => 53, :r2 => 54, :r3 => 57, :r4 => 58, :r5 => 61, :r6 => 62, :r7 => 65, :r8 => 66, :r9 => 69, :r10 => 70, :r11 => 73, :r12 => 74
-      @tota_rho123_rating = rho_rating(@total_rho1 + @total_rho2 + @total_rho3)
+      @total_rho123_rating = rho_rating(final_rho @total_rho1, @total_rho2, @total_rho3)
       @total_bali1_rating = bal_rating @total_bali1, :r1 => 'Strongly aversive towards individuality of other people', :r2 => 'Aversive tendencies towards individuality of other people', :r3 => 'Balanced valence towards individuality of other people', :r4 => 'Tendencies to be overly-attracted towards valuing individuality of other people', :r5 => 'Strongly over-attracted towards valuing individuality of other people'
       @total_bale1_rating = bal_rating @total_bale1, :r1 => 'Strongly aversive towards practicality', :r2 => 'Aversive tendencies towards practicality', :r3 => 'Balanced valence towards practicality', :r4 => 'Tendencies to be overly-attracted towards valuing practicality', :r5 => 'Strongly over-attracted towards valuing practicality'
       @total_bals1_rating = bal_rating @total_bals1, :r1 => 'Strongly aversive towards order and systems in the world', :r2 => 'Aversive tendencies towards order and systems in the world', :r3 => 'Balanced valence towards order and systems in the world', :r4 => 'Tendencies to be overly-attracted towards valuing order and systems in the world', :r5 => 'Strongly over-attracted towards valuing order and systems in the world'
@@ -185,6 +195,7 @@ class HomeController < ApplicationController
       @total_rho4 = total_rho4 @result2.item_order
       @total_rho5 = total_rho5 @result2.item_order
       @total_rho6 = total_rho6 @result2.item_order
+      @rho2 = final_rho @total_rho4, @total_rho5, @total_rho6
 
       @dif2 = dif2 @result2.item_order
       @int2 = int2 @result2.item_order
@@ -213,7 +224,7 @@ class HomeController < ApplicationController
       @di2_rating = rating @di2, :r1 => 3, :r2 => 4, :r3 => 7, :r4 => 8, :r5 => 11, :r6 => 12, :r7 => 15, :r8 => 16, :r9 => 19, :r10 => 20, :r11 => 23, :r12 => 24
       @total_dis2_rating = rating @total_dis2, :r1 => 0, :r2 => 1, :r3 => 1, :r4 => 2, :r5 => 2, :r6 => 4, :r7 => 4, :r8 => 5, :r9 => 5, :r10 => 6, :r11 => 6, :r12 => 8
       @alper2_rating = rating @alper2, :r1 => 53, :r2 => 54, :r3 => 57, :r4 => 58, :r5 => 61, :r6 => 62, :r7 => 65, :r8 => 66, :r9 => 69, :r10 => 70, :r11 => 73, :r12 => 74
-      @tota_rho456_rating = rho_rating(@total_rho4 + @total_rho5 + @total_rho6)
+      @total_rho456_rating = rho_rating(final_rho @total_rho4, @total_rho5, @total_rho6)
       @total_bali2_rating = bal_rating @total_bali2, :r1 => 'Strongly aversive towards your own individuality ', :r2 => 'Aversive tendencies towards your own individuality', :r3 => 'Balanced valence towards your own  individuality ', :r4 => 'Tendencies to be overly-attracted towards valuing your own individuality ', :r5 => 'Strongly over-attracted towards valuing your own individuality'
       @total_bale2_rating = bal_rating @total_bale2, :r1 => 'Strongly aversive towards valuing your roles in life', :r2 => 'Aversive tendencies towards valuing your roles in life', :r3 => 'Balanced valence towards your roles in life', :r4 => 'Tendencies to be overly-attracted towards valuing your roles in life', :r5 => 'Strongly over-attracted towards valuing your roles in life'
       @total_bals2_rating = bal_rating @total_bals2, :r1 => 'Strongly aversive towards your self-concept', :r2 => 'Aversive tendencies towards your self-concept', :r3 => 'Balanced valence towards your self-concept', :r4 => 'Tendencies to be overly-attracted towards valuing your self-concept', :r5 => 'Strongly over-attracted towards valuing your self-concept'
@@ -405,6 +416,11 @@ class HomeController < ApplicationController
       n += 1
     end
     return total
+  end
+
+  def final_rho rho1, rho2, rho3
+    # '%0.2f' % (rho1/Math.sqrt(rho2*rho3))
+    rho1/Math.sqrt(rho2*rho3)
   end
 
   def alper1 new_order

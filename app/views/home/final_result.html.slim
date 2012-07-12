@@ -137,13 +137,13 @@ div
 					td.tr= @alper2_rating
 
 				tr
-					td= @tota_rho123_rating
-					td.tc= @total_rho1 + @total_rho2 + @total_rho3
+					td= @total_rho123_rating
+					td.tc= '%0.2f' % @rho1
 					td.tr Part 1 Validity
 					td.tc.blue RHO
 					td Part 2 Validity
-					td.tc= @total_rho4 + @total_rho5 + @total_rho6
-					td.tr= @tota_rho456_rating
+					td.tc= '%0.2f' % @rho2
+					td.tr= @total_rho456_rating
 
 		table.table.table-striped
 			thead
