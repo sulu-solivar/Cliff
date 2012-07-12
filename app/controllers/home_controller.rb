@@ -31,7 +31,12 @@ class HomeController < ApplicationController
 	def testtwo
     @test_two_tab = 'active'
     @page_header = "Test Two Items - Cliff's Hartman Model"
-  	@list = Testtwo.all
+    result_vars
+    if @result2
+      @current_order = @result2.item_order.split(',')
+    else
+      @current_order = Testtwo.all.map{ |t| t.id }
+    end
   end	
 
   def resultone
